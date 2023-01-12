@@ -31,7 +31,7 @@ public class BookDao {
 			while (rs.next()) {
 				BookVo vo = new BookVo();
 				vo.setNo(rs.getLong(1));
-				vo.setRent(rs.getString(2));
+				vo.setRent(rs.getString(2).equals("Y")? "대여중" : "대여 가능");
 				vo.setTitle(rs.getString(3));
 				vo.setAuthorNo(rs.getLong(4));
 

@@ -20,8 +20,14 @@ public class BookShop {
 		vo.setNo(no);
 		vo.setRent("Y");
 		
-		new BookDao().update(vo);
+		boorRental(vo);
 		
+		
+		displayBookInfo();
+	}
+
+	private static void boorRental(BookVo vo) {
+		new BookDao().update(vo);
 		displayBookInfo();
 	}
 
@@ -29,7 +35,7 @@ public class BookShop {
 
 		List<BookVo> list = new BookDao().findAll();
 		for (BookVo vo : list) {
-			System.out.println(vo.getNo() + vo.getTitle());
+			System.out.println(vo.getNo() + vo.getTitle() + " : " + vo.getRent());
 		}
 	}
 }

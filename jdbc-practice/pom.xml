@@ -20,8 +20,13 @@
 		    <artifactId>mariadb-java-client</artifactId>
 		    <version>3.0.8</version>
 		</dependency>
-		
-		
+
+
+		<dependency>
+			<groupId>com.douzone</groupId>
+			<artifactId>chapter03</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	
   <build>

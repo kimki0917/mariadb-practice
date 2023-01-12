@@ -24,7 +24,7 @@ public class BookDao {
 		try {
 			conn = getConnection();
 
-			String sql = "select no, rent, title, author_no from book order by no asc";
+			String sql = "select a.no, a.rent, a.title, a.author_no, b.name from book a join author b on a.author_no = b.no order by a.no asc;";
 			pstmt = conn.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
@@ -34,6 +34,7 @@ public class BookDao {
 				vo.setRent(rs.getString(2).equals("Y")? "대여중" : "대여 가능");
 				vo.setTitle(rs.getString(3));
 				vo.setAuthorNo(rs.getLong(4));
+				vo.setAuthorName(rs.getString(5));
 
 				result.add(vo);
 			}

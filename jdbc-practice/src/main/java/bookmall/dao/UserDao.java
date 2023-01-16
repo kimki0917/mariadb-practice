@@ -88,12 +88,7 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-
-		for (UserVo vo : result) {
-			System.out.println(vo.getNo() + ". " + vo.getName() + " : " + vo.getPhone() + " , " + vo.getEmail() + " "
-					+ vo.getPassword());
-		}
-
+		
 		return result;
 	}
 

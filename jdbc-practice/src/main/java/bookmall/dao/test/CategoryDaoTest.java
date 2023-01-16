@@ -11,8 +11,9 @@ public class CategoryDaoTest {
 	}
 
 	private static void testFindAll() {
-		// TODO Auto-generated method stub
-
+		for (CategoryVo vo : result) {
+			System.out.println(vo.getNo() + ". " + vo.getCategory());
+		}
 	}
 
 	private static void testInsert() {

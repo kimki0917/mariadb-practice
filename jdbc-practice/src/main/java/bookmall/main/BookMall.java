@@ -16,7 +16,6 @@ public class BookMall {
 		
 		System.out.println("## 상품리스트");
 		BookDao.findAll();
-		//카테고리 나오게 조인하기!
 		
 		System.out.println("## 카트");
 		CartDao.findAll();

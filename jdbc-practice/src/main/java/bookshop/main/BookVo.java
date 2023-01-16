@@ -47,4 +47,9 @@ public class BookVo {
 		this.authorNo = authorNo;
 	}
 
+	public void setCategoryNo(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

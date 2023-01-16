@@ -3,6 +3,8 @@ package bookmall.dao.test;
 import bookmall.dao.OrderDao;
 import bookmall.vo.OrderVo;
 
+import java.util.List;
+
 public class OrderDaoTest {
 
 	public static void main(String[] args) {
@@ -11,8 +13,11 @@ public class OrderDaoTest {
 	}
 
 	private static void testFindAll() {
-		// TODO Auto-generated method stub
-
+		List<OrderVo> result = new OrderDao().findAll();
+		for (OrderVo vo : result) {
+			System.out.println(" 주문내역 : " + vo.getNo() + ", 주문번호 : " + vo.getOrderNum() + ", 가격 : " + vo.getPayment()
+					+ ", 배송지: " + vo.getAddress() + ", 주문자 정보 : " + vo.getUserNo());
+		}
 	}
 
 	private static void testInsert() {

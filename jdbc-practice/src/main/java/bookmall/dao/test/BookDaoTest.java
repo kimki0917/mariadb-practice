@@ -1,5 +1,11 @@
 package bookmall.dao.test;
 
+
+import bookmall.dao.BookDao;
+import bookmall.vo.BookVo;
+
+import java.util.List;
+
 public class BookDaoTest {
 
 	public static void main(String[] args) {
@@ -8,13 +14,15 @@ public class BookDaoTest {
 	}
 
 	private static void testFindAll() {
-		// TODO Auto-generated method stub
-
+		List<BookVo> result = new BookDao().findAll();
+		for (BookVo vo : result) {
+			System.out.println(vo.getNo() +". 카테고리 : "+ vo.getCategory() + " , 제목 : " + vo.getTitle()+ " , 가격 : " + vo.getPrice()+ " , 재고: " + vo.getQuantity());
+		}
 	}
 
 	private static void testInsert() {
-		// TODO Auto-generated method stub
-
+		BookDao dao = new BookDao();
+		BookVo vo = new BookVo();
 	}
 
 }

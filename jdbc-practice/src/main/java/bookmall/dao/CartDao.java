@@ -90,11 +90,6 @@ public class CartDao {
 				e.printStackTrace();
 			}
 		}
-
-		for (CartVo vo : result) {
-			System.out.println(vo.getNo() + "."+ vo.getUserName() + "의 장바구니 - 카테고리 : " + vo.getBookCategory() + " , 책 제목 : " + vo.getBooktitle() + " , 가격 : " + vo.getBookPrice()
-					+ " , 수량 : " + vo.getQuantity());
-		}
 		return result;
 	}
 

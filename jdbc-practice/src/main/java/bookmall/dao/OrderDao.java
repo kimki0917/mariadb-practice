@@ -88,11 +88,6 @@ public class OrderDao {
 				e.printStackTrace();
 			}
 		}
-
-		for (OrderVo vo : result) {
-			System.out.println(" 주문내역 : " + vo.getNo() + ", 주문번호 : " + vo.getOrderNum() + ", 가격 : " + vo.getPayment()
-					+ ", 배송지: " + vo.getAddress() + ", 주문자 정보 : " + vo.getUserNo());
-		}
 		return result;
 	}
 

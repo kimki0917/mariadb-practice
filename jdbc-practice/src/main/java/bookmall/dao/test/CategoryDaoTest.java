@@ -3,6 +3,8 @@ package bookmall.dao.test;
 import bookmall.dao.CategoryDao;
 import bookmall.vo.CategoryVo;
 
+import java.util.List;
+
 public class CategoryDaoTest {
 
 	public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class CategoryDaoTest {
 	}
 
 	private static void testFindAll() {
+		List<CategoryVo> result = new CategoryDao().findAll();
 		for (CategoryVo vo : result) {
 			System.out.println(vo.getNo() + ". " + vo.getCategory());
 		}
@@ -28,8 +31,6 @@ public class CategoryDaoTest {
 		
 		vo.setCategory("인문");
 		dao.insert(vo);
-		
-		CategoryDao.findAll();
 	}
 
 }

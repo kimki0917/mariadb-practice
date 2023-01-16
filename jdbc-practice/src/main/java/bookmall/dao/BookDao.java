@@ -89,11 +89,6 @@ public class BookDao {
 				e.printStackTrace();
 			}
 		}
-
-		for (BookVo vo : result) {
-			System.out.println(vo.getNo() +". 카테고리 : "+ vo.getCategory() + " , 제목 : " + vo.getTitle()+ " , 가격 : " + vo.getPrice()+ " , 재고: " + vo.getQuantity());
-		}
-
 		return result;
 	}
 

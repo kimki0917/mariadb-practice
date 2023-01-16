@@ -1,5 +1,10 @@
 package bookmall.dao.test;
 
+import bookmall.dao.CartDao;
+import bookmall.vo.CartVo;
+
+import java.util.List;
+
 public class CartDaoTest {
 
 	public static void main(String[] args) {
@@ -8,13 +13,16 @@ public class CartDaoTest {
 	}
 
 	private static void testFindAll() {
-		// TODO Auto-generated method stub
-
+		List<CartVo> result = new CartDao().findAll();
+		for (CartVo vo : result) {
+			System.out.println(vo.getNo() + "."+ vo.getUserName() + "의 장바구니 - 카테고리 : " + vo.getBookCategory() + " , 책 제목 : " + vo.getBooktitle() + " , 가격 : " + vo.getBookPrice()
+					+ " , 수량 : " + vo.getQuantity());
+		}
 	}
 
 	private static void testInsert() {
-		// TODO Auto-generated method stub
-
+		CartDao dao = new CartDao();
+		CartVo vo = new CartVo();
 	}
 
 }

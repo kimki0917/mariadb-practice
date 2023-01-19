@@ -12,14 +12,14 @@ public class CategoryDaoTest {
 		testFindAll();
 	}
 
-	private static void testFindAll() {
+	public static void testFindAll() {
 		List<CategoryVo> result = new CategoryDao().findAll();
 		for (CategoryVo vo : result) {
 			System.out.println(vo.getNo() + ". " + vo.getCategory());
 		}
 	}
 
-	private static void testInsert() {
+	public static void testInsert() {
 		CategoryDao dao = new CategoryDao();
 		CategoryVo vo = new CategoryVo();
 		

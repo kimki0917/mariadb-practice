@@ -84,10 +84,6 @@ public class CategoryDao {
 			}
 		}
 
-		for (CategoryVo vo : result) {
-			System.out.println(vo.getNo() + ". " + vo.getCategory());
-		}
-
 		return result;
 	}
 

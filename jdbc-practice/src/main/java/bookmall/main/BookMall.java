@@ -1,30 +1,37 @@
 package bookmall.main;
 
-import bookmall.dao.BookDao;
-import bookmall.dao.CartDao;
-import bookmall.dao.CategoryDao;
-import bookmall.dao.OrderDao;
-import bookmall.dao.UserDao;
+import bookmall.dao.test.BookDaoTest;
+import bookmall.dao.test.CartDaoTest;
+import bookmall.dao.test.CategoryDaoTest;
+import bookmall.dao.test.OrderBookDaoTest;
+import bookmall.dao.test.OrderDaoTest;
 
 public class BookMall {
 	public static void main(String[] args) {
 		System.out.println("## 회원리스트");
-		UserDao.findAll();
+		//BookDaoTest.testInsert();
+		BookDaoTest.testFindAll();
 		
 		System.out.println("## 카테고리");
-		CategoryDao.findAll();
+		//CategoryDaoTest.testInsert();
+		CategoryDaoTest.testFindAll();
 		
 		System.out.println("## 상품리스트");
-		BookDao.findAll();
+		//BookDaoTest.testInsert();
+		BookDaoTest.testFindAll();
+		
 		
 		System.out.println("## 카트");
-		CartDao.findAll();
-		//조인해서 이름, 수량, 책제목, 카테고리 다가져올것
+		//CartDaoTest.testInsert();
+		CartDaoTest.testFindAll();
 		
 		System.out.println("## 주문");
-		OrderDao.findAll();
+		//OrderDaoTest.testInsert();
+		OrderDaoTest.testFindAll();
 
 		System.out.println("## 주문 도서 리스트");
-		//1개만 들어가게 하세요
+		//OrderBookDaoTest.testInsert();
+		OrderBookDaoTest.testFindAll();		
+		
 	}
 }

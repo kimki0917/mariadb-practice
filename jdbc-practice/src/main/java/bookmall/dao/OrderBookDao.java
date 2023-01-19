@@ -8,21 +8,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import bookmall.vo.CartVo;
+import bookmall.vo.OrderBookVo;
 
-public class CartDao {
-	public void insert(CartVo vo) {
+public class OrderBookDao {
+	public void insert(OrderBookVo vo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
 		try {
 			conn = getConnection();
 
-			String sql = "insert into cart values(null, ?, ?, ?)";
+			String sql = "insert into orders_book values(null, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, vo.getQuantity());
-			pstmt.setInt(2, vo.getUserNo());
+			pstmt.setInt(2, vo.getOrdersNo());
 			pstmt.setInt(3, vo.getBookNo());
 
 			pstmt.executeUpdate();
@@ -44,8 +44,8 @@ public class CartDao {
 		}
 	}
 
-	public static List<CartVo> findAll() {
-		List<CartVo> result = new ArrayList<>();
+	public static List<OrderBookVo> findAll() {
+		List<OrderBookVo> result = new ArrayList<>();
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -54,24 +54,22 @@ public class CartDao {
 		try {
 			conn = getConnection();
 
-			String sql = "select a.no, b.name, c.title, c.price, a.quantity, d.category \r\n"
-					+ "from cart a join user b join book c join category d \r\n"
-					+ "on a.user_no = b.no and a.book_no = c.no and\r\n"
-					+ "c.category_no=d.no;\r\n"
-					+ "";
+			String sql = "select d.name, b.order_num, c.title, c.price, a.quantity from orders_book a join orders b join book c join user d on  a.orders_no = b.no and a.book_no = c.no and b.user_no= d.no;";
 			pstmt = conn.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				CartVo vo = new CartVo();
-				vo.setNo(rs.getInt(1));
-				vo.setUserName(rs.getString(2));
-				vo.setBooktitle(rs.getString(3));
-				vo.setBookPrice(rs.getInt(4));
+				OrderBookVo vo = new OrderBookVo();
+				vo.setName(rs.getString(1));
+				vo.setOrderNum(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setPrice(rs.getInt(4));
 				vo.setQuantity(rs.getInt(5));
-				vo.setBookCategory(rs.getString(6));
 				result.add(vo);
 			}
+			
+
+			
 
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
@@ -110,4 +108,5 @@ public class CartDao {
 		}
 		return conn;
 	}
+
 }

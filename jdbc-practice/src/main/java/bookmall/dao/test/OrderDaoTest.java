@@ -12,7 +12,7 @@ public class OrderDaoTest {
 		testFindAll();
 	}
 
-	private static void testFindAll() {
+	public static void testFindAll() {
 		List<OrderVo> result = new OrderDao().findAll();
 		for (OrderVo vo : result) {
 			System.out.println(" 주문내역 : " + vo.getNo() + ", 주문번호 : " + vo.getOrderNum() + ", 가격 : " + vo.getPayment()
@@ -20,7 +20,7 @@ public class OrderDaoTest {
 		}
 	}
 
-	private static void testInsert() {
+	public static void testInsert() {
 		OrderVo vo = new OrderVo();
 		OrderDao dao = new OrderDao();
 		
